@@ -53,7 +53,28 @@ def login(request):
         else:
             return "Invalid Credential!!", 401
     except Exception as e:
-        print("exception >> {}".format(e))
+        print(f"exception >> {e}")
+
+@server.route('/validate', methods=['POST'])
+def validate(request):
+    encoded_jwt = request.headers['Authorization']
+
+    if not encoded_jwt:
+        return "Missing Credential !!", 401
+    
+    jwt_token = encoded_jwt.split(" ")[1]
+
+    try:
+        decode_jwt_token = jwt.decode(
+            encoded_jwt,
+            os.environ.get('JWT_SECRET'),
+            algorithms=['HS256']
+        )
+    except Exception as E:
+        print(f'Exception while trying to decode jwt >> {E}')
+        return 'Not Authorized', 403
+    
+    return decode_jwt_token, 200
 
 def createJWTToken(username: str, email: str, jwt_secret_key: str, is_admin: bool):
     return jwt.encode(
@@ -61,7 +82,7 @@ def createJWTToken(username: str, email: str, jwt_secret_key: str, is_admin: boo
             'username': username,
             'email': email,
             'expiry': datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(1),
-            'iat': datetime.datetime.utcnow(),
+            'creation_time': datetime.datetime.utcnow(),
             'is_admin': is_admin
         },
         jwt_secret_key,
