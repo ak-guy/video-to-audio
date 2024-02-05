@@ -1,13 +1,13 @@
 import jwt
 import datetime
 import os
-import dotenv
+# import dotenv
 
 from flask import Flask
 from flask_mysqldb import MySQL
 
-# loading environment variables from .env file
-dotenv.load_dotenv()
+# loading environment variables from .env file, but will create these env variable while starting image of the app
+# dotenv.load_dotenv()
 
 server = Flask(__name__)
 mysql = MySQL(server)
