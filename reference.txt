@@ -1,6 +1,7 @@
 External References :
 1. setting environment variable(os module, or python-dotenv module) -> https://blog.enterprisedna.co/python-set-environment-variable/
-2. 
+2. https://stackoverflow.com/questions/41620674/use-placeholders-in-yaml
+3. 
 
 
 Tip : 
