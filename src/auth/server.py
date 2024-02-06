@@ -22,11 +22,13 @@ server.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
 @server.route('/login', methods=['POST'])
 def login(request):
     auth = request.authorization
+    ''' example of auth format
     auth = {
         'username': 'admin',
         'email': 'arpitkumar3203@gmail.com',
         'password': 'admin'
     }
+    '''
     if not auth:
         return 'Authorization failed!! Missing credentials', 401
     
