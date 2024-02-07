@@ -20,7 +20,7 @@ def upload_file_in_mongodb(file, fs, channel, access):
             routing_key="video",
             body=json.dumps(message),
             properties=pika.BasicProperties(
-                delivery_mode=pika.spec.PERSISTENT_DILEVERY_MODE
+                delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE
             )
         )
     except Exception as e:
