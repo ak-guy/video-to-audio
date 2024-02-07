@@ -45,8 +45,8 @@ def login(request):
         if result > 0:
             user_row = cur.fetchone()
             query_email = user_row[0]
-            query_username = user_row[0]
-            query_password = user_row[0]
+            query_username = user_row[1]
+            query_password = user_row[2]
 
             if query_email != email or query_username != username or query_password != password:
                 return "Credential does not match!! Either Username or Password is incorrect", 401
