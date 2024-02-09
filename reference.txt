@@ -6,6 +6,9 @@ External References :
 5. configuring configmap.yaml -> https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/config-map-v1/
 6. configuring secret.yaml -> https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/secret-v1/
 7. gridfs(used to store and retrieve files in mongoDB) -> https://www.mongodb.com/docs/manual/core/gridfs/
+8. configuring statefulSet.yaml -> https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
+9. 
+
 
 Tip : 
 1. sometimes even after installing modules in virtual-env, in IDE it will show model not found error, this is because IDE is using default interpreter path, so if you want to make yellow line under module name to go away then change the path of interpretor to copy_path_to -> /venv/bin/python3.10

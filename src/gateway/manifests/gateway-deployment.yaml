@@ -1,4 +1,4 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gateway
@@ -22,7 +22,7 @@ spec:
         - name: gateway
           image: akguy/gateway_test
           ports:
-            - containerPorts: 8080
+            - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: gateway-configmap
