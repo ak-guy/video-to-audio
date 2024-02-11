@@ -12,3 +12,6 @@ External References :
 
 Tip : 
 1. sometimes even after installing modules in virtual-env, in IDE it will show model not found error, this is because IDE is using default interpreter path, so if you want to make yellow line under module name to go away then change the path of interpretor to copy_path_to -> /venv/bin/python3.10
+2. to delete a pod -> kubectl scale deployment_kind --replicas=0 service_name
+3. to apply all configuration files (but you should be in the folder where all configurations are preset) -> kubectl apply -f ./
+4. to delete all configuration files -> kubectl delete -f ./

@@ -8,7 +8,7 @@ spec:
       http:
         paths:
           - path: /
-            pathprefix: Prefix
+            pathType: Prefix
             backend:
               service:
                 name: rabbitmq

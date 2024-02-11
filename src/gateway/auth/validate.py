@@ -11,7 +11,7 @@ def token(request):
         return None, ("Missing Credentials", 401)
     
     conn = requests.post(
-        f'http://{os.environ.get('AUTH_SERVICE_ADDRESS')}/validate',
+        f'http://{os.environ.get("AUTH_SERVICE_ADDRESS")}/validate',
         headers={"Authorization": token}
     )
 
