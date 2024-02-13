@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: convertor
+  labels:
+    app: convertor
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 8
+  selector:
+    matchlabels:
+      app: convertor
+  template:
+    metadata:
+      labels:
+        app: convertor
+    spec:
+      containers:
+        - name: convertor
+          image: akguy/convertor
+          envFrom:
+            - configRefMap:
+                name: convertor-configmap
+            - secretMap:
+                name: convertor-secret
