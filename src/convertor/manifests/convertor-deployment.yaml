@@ -11,7 +11,7 @@ spec:
     rollingUpdate:
       maxSurge: 8
   selector:
-    matchlabels:
+    matchLabels:
       app: convertor
   template:
     metadata:
@@ -22,7 +22,7 @@ spec:
         - name: convertor
           image: akguy/convertor
           envFrom:
-            - configRefMap:
+            - configMapRef:
                 name: convertor-configmap
-            - secretMap:
+            - secretRef:
                 name: convertor-secret
