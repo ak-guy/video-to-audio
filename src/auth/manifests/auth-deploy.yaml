@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: akguy/auth_test
+          image: akguy/auth_10
           ports:
             - containerPort: 5000
           envFrom:

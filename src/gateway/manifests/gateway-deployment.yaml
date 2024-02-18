@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: akguy/gateway
+          image: akguy/gateway_new_2
           ports:
             - containerPort: 8080
           envFrom:

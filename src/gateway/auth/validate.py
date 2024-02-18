@@ -16,6 +16,6 @@ def token(request):
     )
 
     if conn.status_code == 200:
-        return conn.txt, None
+        return conn.text, None
 
-    return None, (conn.txt, conn.status_code) 
+    return None, (conn.text, conn.status_code) 

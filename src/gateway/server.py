@@ -20,10 +20,15 @@ fs = gridfs.GridFS(db_name)
 connection = pika.BlockingConnection(pika.ConnectionParameters("rabbitmq"))
 channel = connection.channel()
 
+@server.route('/', methods=['GET'])
+def home():
+    return "Welcome !!"
+
 @server.route('/login', methods=['POST'])
 def login():
     token, err = access.login(request)
-
+    print(f"token generated >>> {token}", flush=True)
+    print(err, flush=True)
     if not err:
         return token
     
@@ -34,7 +39,8 @@ def upload():
     access, err = validate.token(request)
 
     access = json.loads(access)
-
+    print("access",flush=True)
+    print(access, flush=True)
     if access['is_admin']:
         if len(request.files) != 1:
             return "Only 1 file can be uploaded!!", 400

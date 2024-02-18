@@ -16,12 +16,12 @@ spec:
         - name: rabbitmq
           image: rabbitmq:3-management
           ports:
-            - name: http
+            - name: http 
               protocol: TCP
-              containerPort: 15672
-            - name: amqp
+              containerPort: 15672 # for management web app
+            - name: amqp # advanced messaging queuing protocol
               protocol: TCP
-              containerPort: 5672
+              containerPort: 5672 # for message broker
           envFrom:
             - configMapRef:
                 name: rabbitmq-configmap
