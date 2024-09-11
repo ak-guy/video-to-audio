@@ -6,6 +6,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   resources:
-    requests: 
-      storage: 2Gi # 1 GB storage space
+    requests:
+      storage: 2Gi
   storageClassName: standard

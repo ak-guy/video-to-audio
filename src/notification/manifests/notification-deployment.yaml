@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: convertor
+  name: notification
   labels:
-    app: convertor
+    app: notification
 spec:
   replicas: 4
+  selector:
+    matchLabels:
+      app: notification
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 8
-  selector:
-    matchLabels:
-      app: convertor
   template:
     metadata:
       labels:
-        app: convertor
+        app: notification
     spec:
       containers:
-        - name: convertor
-          image: akguy/convertor
+        - name: notification
+          image: akguy/notification
           envFrom:
             - configMapRef:
-                name: convertor-configmap
+                name: notification-configmap
             - secretRef:
-                name: convertor-secret
+                name: notification-secret
